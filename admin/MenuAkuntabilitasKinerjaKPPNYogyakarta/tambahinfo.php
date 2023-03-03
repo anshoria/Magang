@@ -184,7 +184,11 @@ if( isset($_POST["tambahmenu"]) ) {
                                                         <label for="gambar" class="form-label">Gambar</label>
                                                         <input type="file" class="form-control" id="gambar" placeholder="Masukkan Gambar/Logo Menu" name="gambar" required>
                                                     </div>
-                                                    </br>
+                                                    <div class="mb-5">
+                                                        <em>*Upload gambar dengan rasio 1:2 atau 2:1</em>
+                                                        <br>
+                                                        <em>*Batas upload file maksimal 10 mb</em>
+                                                    </div>
                                                     <button type="submit" name="tambahmenu" class="btn btn-success">Simpan</button>
                                                     <a type="button" class="btn btn-primary" href="cardadmin.php">Tutup</a>
                                                 </div>

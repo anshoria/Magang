@@ -195,7 +195,11 @@ if( isset($_POST["submit"]) ) {
                                                         <input type="file" class="form-control" id="NIK" name="gambar">
                                                         <img class="mt-3" src="../../img/<?php echo $mn['gambar']; ?>" width="150" height="100" alt="">
                                                     </div>
-                                                    </br>
+                                                    <div class="mb-5">
+                                                        <em>*Upload gambar dengan rasio 1:2 atau 2:1</em>
+                                                        <br>
+                                                        <em>*Batas upload file maksimal 10 mb</em>
+                                                    </div>
                                                     <button type="submit" name="submit" class="btn btn-success">Simpan</button>
                                                     <a type="button" class="btn btn-primary" href="cardadmin.php">Tutup</a>
                                                 </div>
