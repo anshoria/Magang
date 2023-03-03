@@ -3,7 +3,7 @@ session_start();
 if ( $_SESSION['role'] == 'admin') {
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/login.php");
+    header("location: ../../Login/index.php");
     exit;
 } 
 ?>
@@ -358,5 +358,5 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 
 </html>
 <?php }else{
-	header("location: ../../Login/login.php");
+	header("location: ../../Login/index.php");
 } ?>

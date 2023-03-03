@@ -16,9 +16,9 @@ if (isset($_POST['NIP']) && isset($_POST['password']) && isset($_POST['role'])) 
 	$role = test_input($_POST['role']);
 
 	if (empty($NIP)) {
-		header("Location: ../Login/login.php?error=NIP diperlukan");
+		header("Location: ../Login/index.php?error=NIP diperlukan");
 	}else if (empty($password)) {
-		header("Location: ../Login/login.php?error=Password diperlukan");
+		header("Location: ../Login/index.php?error=Password diperlukan");
 	}else {
 						
 
@@ -42,14 +42,14 @@ if (isset($_POST['NIP']) && isset($_POST['password']) && isset($_POST['role'])) 
 				} 
 
         	}else {
-        		header("Location: login.php?error=NIP atau Password anda salah");
+        		header("Location: index.php?error=NIP atau Password anda salah");
         	}
         }else {
-        	header("Location: login.php?error=NIP atau Password salah atau Akun anda tidak Aktif");
+        	header("Location: index.php?error=NIP atau Password salah atau Akun anda tidak Aktif");
         }
 
 	}
 	
 }else {
-	header("Location: login.php");
+	header("Location: index.php");
 }

@@ -1,7 +1,7 @@
 <?php
 if ( $_SESSION['role'] == 'pegawai') {
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/login.php");
+    header("location: ../../Login/index.php");
     exit;
 } 
 
@@ -296,5 +296,5 @@ function ubahmenu3($data) {
 ?>
 
 <?php }else{
-	header("location: ../../Login/login.php");
+	header("location: ../../Login/index.php");
 } ?>

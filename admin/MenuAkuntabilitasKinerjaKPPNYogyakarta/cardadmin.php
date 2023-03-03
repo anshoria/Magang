@@ -3,7 +3,7 @@ session_start();
 if ( $_SESSION['role'] == 'admin') {
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/login.php");
+    header("location: ../../Login/index.php");
     exit;
 } 
 
@@ -388,6 +388,6 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 </html>
 
 <?php }else{
-	header("location: ../../Login/login.php");
+	header("location: ../../Login/index.php");
 } ?>
 
