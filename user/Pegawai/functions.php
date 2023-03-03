@@ -1,4 +1,5 @@
-<?php 
+<?php
+if ( $_SESSION['role'] == 'pegawai') {
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
@@ -293,3 +294,7 @@ function ubahmenu3($data) {
 
 
 ?>
+
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>

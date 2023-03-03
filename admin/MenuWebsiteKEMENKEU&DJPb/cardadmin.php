@@ -1,13 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['role']) == 'admin') {
+if ( $_SESSION['role'] == 'admin') {
+if (!isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
 }
-if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/login.php");
-    exit;
-} 
 
 include '../Pegawai/functions.php';
 $menu = query("SELECT * FROM menuwebsitekemenkeu");
@@ -21,12 +18,10 @@ $menu = query("SELECT * FROM menuwebsitekemenkeu");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-		rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-		crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-	<!-- Font Awesome icons (free version)-->
+    <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
@@ -39,11 +34,11 @@ $menu = query("SELECT * FROM menuwebsitekemenkeu");
     html,
     body {
         height: 100%;
-		background-image: url('../../img/1.svg');
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-		background-position: center;
+        background-image: url('../../img/1.svg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
     }
 
     .wrapper {
@@ -90,7 +85,7 @@ $menu = query("SELECT * FROM menuwebsitekemenkeu");
             margin: 0 0 0.3em;
         }
     }
-    
+
 
     .card {
         display: block;
@@ -152,173 +147,168 @@ $menu = query("SELECT * FROM menuwebsitekemenkeu");
     }
 
     #page-container {
-		position: relative;
-		min-height: 20vh;
-	}
+        position: relative;
+        min-height: 20vh;
+    }
 
     #content-wrap {
-		padding-bottom: 10px;
-		/* Footer height */
-	}
+        padding-bottom: 10px;
+        /* Footer height */
+    }
 
     #footer {
-		background-color: #FF8C00;
-		padding: 4px;
-		text-align: center;
-	}
+        background-color: #FF8C00;
+        padding: 4px;
+        text-align: center;
+    }
 
-	
+
 
     /* Gaya CSS untuk tablet */
-	@media (max-width: 768px) {
-		.content {
-			font-size: 20px;
-		}
-	}
+    @media (max-width: 768px) {
+        .content {
+            font-size: 20px;
+        }
+    }
 
-	/* Gaya CSS untuk smartphone */
-	@media (max-width: 480px) {
-		.content {
-			flex-direction: column;
-			font-size: 16px;
-		}
-	}
+    /* Gaya CSS untuk smartphone */
+    @media (max-width: 480px) {
+        .content {
+            flex-direction: column;
+            font-size: 16px;
+        }
+    }
 
-	.carousel-item {
-		height: 70vh;
-		min-height: 300px;
-		background: no-repeat center center scroll;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	}
+    .carousel-item {
+        height: 70vh;
+        min-height: 300px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 
-	.carousel-caption {
-		bottom: 270px;
-	}
+    .carousel-caption {
+        bottom: 270px;
+    }
 
-	.carousel-caption h5 {
-		font-size: 45px;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		margin-top: 25px;
-	}
+    .carousel-caption h5 {
+        font-size: 45px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
 
-	.carousel-caption p {
-		width: 75%;
-		margin: auto;
-		font-size: 18px;
-		line-height: 1.9;
-	}
+    .carousel-caption p {
+        width: 75%;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.9;
+    }
 
-	.social-icons {
-		position: relative;
-		z-index: 2;
-	}
+    .social-icons {
+        position: relative;
+        z-index: 2;
+    }
 
-	.social-icons .btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0;
-		height: 4rem;
-		width: 4rem;
-		border-radius: 100rem;
-	}
+    .social-icons .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 100rem;
+    }
 
-	@media (min-width: 992px) {
-		.social-icons {
-			position: absolute;
-			height: 100%;
-			top: 0;
-			right: 2.5rem;
-			width: auto;
-		}
-	}
+    @media (min-width: 992px) {
+        .social-icons {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            right: 2.5rem;
+            width: auto;
+        }
+    }
 
-	.d-flex {
-		display: flex !important;
-	}
+    .d-flex {
+        display: flex !important;
+    }
 
-	.flex-row {
-		flex-direction: row !important;
-	}
+    .flex-row {
+        flex-direction: row !important;
+    }
 
-	.justify-content-around {
-		justify-content: center !important;
-	}
+    .justify-content-around {
+        justify-content: center !important;
+    }
 
-	.align-items-around {
-		align-items: center !important;
-	}
+    .align-items-around {
+        align-items: center !important;
+    }
 
-	.h-100 {
-		height: 100% !important;
-	}
+    .h-100 {
+        height: 100% !important;
+    }
 
-	.mt-3 {
-		margin-top: 1rem !important;
-	}
+    .mt-3 {
+        margin-top: 1rem !important;
+    }
 
-	.mt-lg-0 {
-		margin-top: 0 !important;
-	}
-
-
+    .mt-lg-0 {
+        margin-top: 0 !important;
+    }
 </style>
 
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
-		<div class="container">
-        <a class="navbar-brand" href="../Home/home.php">KPPN YOGYAKARTA</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../Home/home.php">KPPN YOGYAKARTA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-				<ul class="navbar-nav ms-auto" style="padding: 10px;">
-					<li class="nav-item active">
-						<a class="nav-link text-dark" href="../MenuWebsiteKEMENKEU&DJPb/cardadmin.php">Website KEMENKEU & DJPb</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuInovasiKPPNYogyakarta/cardadmin.php">Inovasi KPPN Yogyakarta</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/cardadmin.php">Akuntabilitas Kinerja
-							KPPN
-							YOGYAKARTA</a>
-					</li>
-					<li class="dropdown">
-						<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-							<a href="" class="btn btn-primary">Monitoring</a>
-							<a href="../Pegawai/pegawai.php" class="btn btn-primary">Data Pegawai</a>
+                <ul class="navbar-nav ms-auto" style="padding: 10px;">
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" href="../MenuWebsiteKEMENKEU&DJPb/cardadmin.php">Website KEMENKEU & DJPb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../MenuInovasiKPPNYogyakarta/cardadmin.php">Inovasi KPPN Yogyakarta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/cardadmin.php">Akuntabilitas Kinerja
+                            KPPN
+                            YOGYAKARTA</a>
+                    </li>
+                    <li class="dropdown">
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <a href="" class="btn btn-primary">Monitoring</a>
+                            <a href="../Pegawai/pegawai.php" class="btn btn-primary">Data Pegawai</a>
 
-							<div class="btn-group" role="group">
-								<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
-									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									PROFILE
-								</button>
-								<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-									<a class="dropdown-item" href="../Home/profil.php">My Profile</a>
-									<a class="dropdown-item" href="../../Login/logout.php">Log Out</a>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-
-			</div>
-		</div>
-	</nav>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    PROFILE
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="../Home/profil.php">My Profile</a>
+                                    <a class="dropdown-item" href="../../Login/logout.php">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="container data-mahasiswa" style="margin-top: 150px;">
-		<a class="btn btn-success" aria-current="page" href="tambahinfo.php">Tambah Data Pegawai</a>
-	</div>
+        <a class="btn btn-success" aria-current="page" href="tambahinfo.php">Tambah Menu</a>
+    </div>
 
     <section class="wrapper">
         <div class="container-fostrap">
@@ -341,37 +331,41 @@ $menu = query("SELECT * FROM menuwebsitekemenkeu");
                                     <div class="card-read-more">
                                         <a href="<?php echo $row['link']; ?>" class="btn btn-link btn-block">Buka
                                         </a>
-                        </br>
+                                        </br>
                                         <a href="editmenu.php?id=<?= $row["id"]; ?>" class="btn btn-warning btn-sm text-white">Edit
                                         </a>
                                         <a href="hapusmenu.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm text-white" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus
                                         </a>
                                     </div>
-                        </br>
+                                    </br>
                                 </div>
 
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-                
+
             </div>
-          
+
         </div>
     </section>
 
     <footer id="footer">
 
-		<a class="btn btn-primary m-3" href="#!"><i class="fab fa-twitter"></i></a>
-		<a class="btn btn-dark m-3" href="#!"><i class="fab fa-tiktok"></i></a>
+        <a class="btn btn-primary m-3" href="#!"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-dark m-3" href="#!"><i class="fab fa-tiktok"></i></a>
         <a class="btn btn-light fw-bold" href="../Home/home.php">Menu Utama</a>
-		<a class="btn btn-danger m-3" href="#!"><i class="fab fa-instagram"></i></a>
-		
-		<a class="btn btn-primary m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
-	</footer>
+        <a class="btn btn-danger m-3" href="#!"><i class="fab fa-instagram"></i></a>
 
-    
+        <a class="btn btn-primary m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
+    </footer>
+
+
 
 </body>
 
 </html>
+
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>

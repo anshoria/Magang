@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['role']) == 'admin') {
-    header("location: ../../Login/login.php");
-    exit;
-}
+if ( $_SESSION['role'] == 'admin') {
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
@@ -329,7 +326,7 @@ $menu = query("SELECT * FROM menuinovasikppnyogyakarta");
 	</nav>
 
     <div class="container data-mahasiswa" style="margin-top: 150px;">
-		<a class="btn btn-success" aria-current="page" href="tambahinfo.php">Tambah Data Pegawai</a>
+		<a class="btn btn-success" aria-current="page" href="tambahinfo.php">Tambah Menu</a>
 	</div>
 
     <section class="wrapper">
@@ -387,3 +384,6 @@ $menu = query("SELECT * FROM menuinovasikppnyogyakarta");
 </body>
 
 </html>
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>

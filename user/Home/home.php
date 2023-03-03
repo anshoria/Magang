@@ -1,5 +1,7 @@
 <?php
-session_start(); 
+session_start();
+if ( $_SESSION['role'] == 'pegawai') {
+
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
@@ -219,13 +221,13 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 
 				<ul class="navbar-nav ms-auto" style="padding: 10px;">
 					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuWebsiteKEMENKEU&DJPb/cardadmin.php">Website KEMENKEU & DJPb</a>
+						<a class="nav-link text-white" href="../MenuWebsiteKEMENKEU&DJPb/carduser.php">Website KEMENKEU & DJPb</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuInovasiKPPNYogyakarta/cardadmin.php">Inovasi KPPN Yogyakarta</a>
+						<a class="nav-link text-white" href="../MenuInovasiKPPNYogyakarta/carduser.php">Inovasi KPPN Yogyakarta</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/cardadmin.php">Akuntabilitas Kinerja
+						<a class="nav-link text-white" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/carduser.php">Akuntabilitas Kinerja
 							KPPN
 							YOGYAKARTA</a>
 					</li>
@@ -353,3 +355,6 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 </body>
 
 </html>
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>

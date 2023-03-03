@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['NIP'])) {
 
-    include "db_conn.php";
+include "db_conn.php";
 
 if (isset($_POST['pl']) && isset($_POST['pb'])
     && isset($_POST['k_pb'])) {
@@ -41,10 +41,17 @@ if (isset($_POST['pl']) && isset($_POST['pb'])
         	          SET password='$pb'
         	          WHERE id='$id'";
         	mysqli_query($conn, $sql_2);
+			if ($_SESSION['role'] == 'admin') {
         	echo "<script>
 				alert('password berhasil diubah!');
 				document.location.href = '../admin/Home/profil.php';
 			  </script>";
+			}else {
+				"<script>
+				alert('password berhasil diubah!');
+				document.location.href = '../user/Home/profil.php';
+			  </script>";
+			}
 	        exit();
 
         }else {

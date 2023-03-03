@@ -1,12 +1,14 @@
 <?php
-session_start(); 
+session_start();
+if ( $_SESSION['role'] == 'pegawai') {
+
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
 } 
 
 include '../Pegawai/functions.php';
-$menu = query("SELECT * FROM menuakuntabilitaskinerja");
+$menu = query("SELECT * FROM menuinovasikppnyogyakarta");
 
 ?>
 <!DOCTYPE html>
@@ -49,6 +51,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
     }
 
     .container-fostrap {
+        display: table-cell;
         padding: 1em;
         text-align: center;
         vertical-align: middle;
@@ -119,6 +122,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 
     .card-content {
         padding: 15px;
+        text-align: left;
     }
 
     .card-title {
@@ -157,7 +161,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 
     #footer {
 		background-color: #FF8C00;
-		padding: 3px;
+		padding: 4px;
 		text-align: center;
 	}
 
@@ -279,7 +283,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="../Home/home.php">KPPN YOGYAKARTA</a>
+            <a class="navbar-brand" href="../Home/home.php">KPPN YOGYAKARTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -289,13 +293,13 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 
 				<ul class="navbar-nav ms-auto" style="padding: 10px;">
 					<li class="nav-item active">
-						<a class="nav-link text-white" href="../MenuWebsiteKEMENKEU&DJPb/cardadmin.php">Website KEMENKEU & DJPb</a>
+						<a class="nav-link text-white" href="../MenuWebsiteKEMENKEU&DJPb/carduser.php">Website KEMENKEU & DJPb</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="../MenuInovasiKPPNYogyakarta/cardadmin.php">Inovasi KPPN Yogyakarta</a>
+						<a class="nav-link text-dark" href="../MenuInovasiKPPNYogyakarta/carduser.php">Inovasi KPPN Yogyakarta</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-dark" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/cardadmin.php">Akuntabilitas Kinerja
+						<a class="nav-link text-white" href="../MenuAkuntabilitasKinerjaKPPNYogyakarta/carduser.php">Akuntabilitas Kinerja
 							KPPN
 							YOGYAKARTA</a>
 					</li>
@@ -319,6 +323,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 			</div>
 		</div>
 	</nav>
+
 
     <section class="wrapper" style="margin-top: 110px;">
         <div class="container-fostrap">
@@ -369,4 +374,6 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 </body>
 
 </html>
-
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>

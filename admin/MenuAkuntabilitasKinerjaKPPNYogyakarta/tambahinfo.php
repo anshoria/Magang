@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['role']) == 'admin') {
-    header("location: ../../Login/login.php");
-    exit;
-}
+if ( $_SESSION['role'] == 'admin') {
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;
@@ -205,3 +202,6 @@ if( isset($_POST["tambahmenu"]) ) {
   
 </body>
 </html>
+<?php }else{
+	header("location: ../../Login/login.php");
+} ?>
