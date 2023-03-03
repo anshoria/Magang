@@ -158,23 +158,18 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 	}
 
     #footer {
-		background-color: #FF8C00;
-		padding: 3px;
-		text-align: center;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 10px;
+		/* Footer height */
 	}
 
-	#footer button {
-		background-color: white;
-		border: none;
-		color: white;
-		padding: 10px 20px;
+	#footer p {
+		background-color: #FF8C00;
+		color: black;
+        padding: 10px;
 		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 4px 2px;
-		cursor: pointer;
-		width: 700px;
 	}
 
     /* Gaya CSS untuk tablet */
@@ -368,15 +363,23 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
         </div>
     </section>
 
-    <footer id="footer">
-
-		<a class="btn btn-primary m-3" href="#!"><i class="fab fa-twitter"></i></a>
-		<a class="btn btn-dark m-3" href="#!"><i class="fab fa-tiktok"></i></a>
-        <a class="btn btn-light fw-bold" href="../Home/home.php">Menu Utama</a>
-		<a class="btn btn-danger m-3" href="#!"><i class="fab fa-instagram"></i></a>
-		
-		<a class="btn btn-primary m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
-	</footer>
+    <div id="page-container">
+            <div id="content-wrap">
+                <div class="social-icons">
+                    <div class="d-flex flex-row justify-content-around align-items-around h-100 mt-3 mt-lg-0">
+                        <a class="btn btn-warning m-3" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-warning m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-warning m-3" href="#!"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-warning m-3" href="#!"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">
+                <p>
+                    ©-Kantor Pelayanan Perbendaharaan Negara Yogyakarta
+                </p>
+            </footer>
+        </div>
 
     
 
