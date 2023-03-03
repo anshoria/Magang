@@ -1,5 +1,9 @@
 <?php
-session_start(); 
+session_start();
+if (!isset($_SESSION['role']) == 'admin') {
+    header("location: ../../Login/login.php");
+    exit;
+} 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
     header("location: ../../Login/login.php");
     exit;

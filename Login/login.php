@@ -1,6 +1,3 @@
-<?php
-session_start(); 
-if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {   ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +60,3 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {   ?>
       </div>
 </body>
 </html>
-<?php }else{
-	header("Location: ../admin/Home/home.php");
-} ?>
