@@ -2,7 +2,7 @@
 session_start();
 if ( $_SESSION['role'] == 'admin') {
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/index.php");
+    header("Location: ../../index.php");
     exit;
 } 
 // Koneksi ke database
@@ -12,7 +12,10 @@ require '../Pegawai/functions.php';
 if( isset($_POST["tambahmenu"]) ) {
 	// cek keberhasilan query
 	if( tambahmenu3($_POST) > 0 ) {
-		header ("Location:./cardadmin.php");
+		echo "<script>
+				alert('data berhasil diinputkan!');
+				document.location.href = 'cardadmin.php';
+			  </script>";
 	} else {
 		echo "<script>
 				alert('data gagal diinputkan!');
@@ -188,6 +191,8 @@ if( isset($_POST["tambahmenu"]) ) {
                                                         <em>*Upload gambar dengan rasio 1:2 atau 2:1</em>
                                                         <br>
                                                         <em>*Batas upload file maksimal 10 mb</em>
+                                                        <br>
+                                                        <em>*Format file jpg, jpeg, png</em>
                                                     </div>
                                                     <button type="submit" name="tambahmenu" class="btn btn-success">Simpan</button>
                                                     <a type="button" class="btn btn-primary" href="cardadmin.php">Tutup</a>
@@ -207,5 +212,5 @@ if( isset($_POST["tambahmenu"]) ) {
 </body>
 </html>
 <?php }else{
-	header("location: ../../Login/index.php");
+	header("Location: ../../index.php");
 } ?>

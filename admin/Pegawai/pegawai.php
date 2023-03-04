@@ -3,7 +3,7 @@ session_start();
 if ( $_SESSION['role'] == 'admin') {
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/index.php");
+    header("Location: ../../index.php");
     exit;
 } 
 require 'functions.php';
@@ -280,5 +280,5 @@ $pegawai = query("SELECT * FROM pegawai");
 
 </html>
 <?php }else{
-	header("location: ../../Login/index.php");
+	header("Location: ../../index.php");
 } ?>

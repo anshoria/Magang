@@ -68,7 +68,7 @@ if (isset($_POST['pl']) && isset($_POST['pb'])
 }
 
 }else{
-     header("Location: index.php");
+     header("Location: ../index.php");
      exit();
 }
 ?>

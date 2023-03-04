@@ -3,7 +3,7 @@ session_start();
 if ( $_SESSION['role'] == 'pegawai') {
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/index.php");
+    header("location: ../../index.php");
     exit;
 } 
 require '../Pegawai/functions.php';
@@ -322,5 +322,5 @@ if (isset($_POST["ubah"])) {
 
 </html>
 <?php }else{
-	header("location: ../../Login/index.php");
+	header("location: ../../index.php");
 } ?>

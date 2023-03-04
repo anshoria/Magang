@@ -3,7 +3,7 @@ session_start();
 if ( $_SESSION['role'] == 'admin') {
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/index.php");
+    header("location: ../../index.php");
     exit;
 } 
 
@@ -281,11 +281,11 @@ if (isset($_SESSION['id'])) {
     // Periksa apakah pengguna telah login
 } else {
     // Jika belum login, redirect ke halaman login
-    header("Location: ../../Login/index.php");
+    header("Location: ../../index.php");
 }
 ?>
 
 <?php }else{
-	header("location: ../../Login/index.php");
+	header("Location: ../../index.php");
 } ?>
 

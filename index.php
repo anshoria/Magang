@@ -6,7 +6,7 @@
 </head>
 <style>
 	body {
-		background-image: url('../img/background_login.png');
+		background-image: url('img/background_login.png');
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-size: cover;
@@ -18,7 +18,7 @@
       <div class="container d-flex justify-content-center align-items-center"
       style="min-height: 100vh">
       	<form class="border shadow p-3 rounded bg-light"
-      	      action="check_login.php" 
+      	      action="Login/check_login.php" 
       	      method="post" 
       	      style="width: 450px;">
       	      <h1 class="text-center p-3">LOGIN</h1>

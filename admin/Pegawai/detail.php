@@ -4,8 +4,7 @@ if ( $_SESSION['role'] == 'admin') {
 
 
 if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
-    header("location: ../../Login/index.php");
-    exit;
+    header("Location: ../../index.php");
 } 
 
 require 'functions.php';
@@ -54,5 +53,5 @@ $pegawai = query("SELECT * FROM pegawai WHERE id = $id");
 
 </html>
 <?php }else{
-	header("location: ../../Login/index.php");
+	header("Location: ../../index.php");
 } ?>
