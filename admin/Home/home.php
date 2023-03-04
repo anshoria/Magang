@@ -15,7 +15,8 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>joglo kawruh</title>
+	<title>Menu Internal</title>
+	<link rel="icon" href="../../img/kemenkeu.png" type="image/png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -44,11 +45,6 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 		background-position: center;
 	}
 
-	.wrapper {
-		width: 1200px;
-		margin: auto;
-		position: relative;
-	}
 
 	section {
 		padding: 50px 0;
@@ -206,6 +202,7 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 	.mt-lg-0 {
 		margin-top: 0 !important;
 	}
+	
 </style>
 
 
@@ -234,7 +231,7 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 					<li class="dropdown">
 						<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
 							<a href="" class="btn btn-primary">Monitoring</a>
-							<a href="../Pegawai/pegawai.php" class="btn btn-primary">Data Pegawai</a>
+							<a href="../Pegawai/pegawai.php" class="btn btn-primary" style="align-items: center;">Data Pegawai</a>
 							<div class="btn-group" role="group">
 								<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									PROFILE
@@ -251,7 +248,6 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 			</div>
 		</div>
 	</nav>
-
 
 	<section class="banner">
 		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">

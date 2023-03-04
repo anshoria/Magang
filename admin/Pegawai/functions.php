@@ -280,7 +280,7 @@ function ubahmenu3($data) {
 		$gambar = upload();
 	}
 
-	$query = "UPDATE menuakuntabilitaskinerjaa SET 	
+	$query = "UPDATE menuakuntabilitaskinerja SET 	
 				judul = '$judul',
 				link = '$link',
 				gambar = '$gambar'
