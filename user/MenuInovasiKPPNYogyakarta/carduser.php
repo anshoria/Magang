@@ -50,7 +50,6 @@ $menu = query("SELECT * FROM menuinovasikppnyogyakarta");
     }
 
     .container-fostrap {
-        display: table-cell;
         padding: 1em;
         text-align: center;
         vertical-align: middle;

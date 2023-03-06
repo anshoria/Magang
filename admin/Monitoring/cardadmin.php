@@ -7,7 +7,7 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 } 
 
 include '../Pegawai/functions.php';
-$menu = query("SELECT * FROM menuinovasikppnyogyakarta");
+$menu = query("SELECT * FROM monitoring");
 
 ?>
 <!DOCTYPE html>

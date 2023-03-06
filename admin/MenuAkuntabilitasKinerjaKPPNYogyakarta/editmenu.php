@@ -168,7 +168,7 @@ if( isset($_POST["submit"]) ) {
 
 
 <body>
-<section class="section" style="margin-top: 30px;" id="sectionBeranda">
+<section class="section" style="margin-top: 15px;" id="sectionBeranda">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 fade-in">

@@ -8,17 +8,12 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 // Koneksi ke database
 require '../Pegawai/functions.php';
 
-$id = $_GET["id"];
-$mn = query("SELECT * FROM menuinovasikppnyogyakarta WHERE id = $id")[0];
-
-
-
 // Cek apakah pengguna admin telah melakukan submit form
-if( isset($_POST["submit"]) ) {
+if( isset($_POST["tambahmenu"]) ) {
 	// cek keberhasilan query
-	if( ubahmenu2($_POST) > 0 ) {
+	if( tambahmenu2($_POST) > 0 ) {
 		echo "<script>
-				alert('data berhasil diubah!');
+				alert('data berhasil diinputkan!');
 				document.location.href = 'cardadmin.php';
 			  </script>";
 	} else {
@@ -166,8 +161,7 @@ if( isset($_POST["submit"]) ) {
 
 
 <body>
-
-<section class="section" style="margin-top: 15px;" id="sectionBeranda">
+<section class="section" style="margin-top: 30px;" id="sectionBeranda">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 fade-in">
@@ -178,29 +172,29 @@ if( isset($_POST["submit"]) ) {
                                     <div class="card-body">
                                         <ul>
                                             <form action="" method="post" enctype="multipart/form-data">
-                                                <h1>Edit Menu</h1>
+                                                <h1>Tambah Menu</h1>
                                                 <div class="container">
-                                                    <input type="hidden" name="id" value="<?php echo $mn["id"]; ?>">
-                                                    <input type="hidden" name="gambarlama" value="<?php echo $mn["gambar"]; ?>">
+                                                    <input type="hidden" name="id">
                                                     <div class="mb-3 mt-3">
                                                         <label for="judul" class="form-label">Judul</label>
-                                                        <input value="<?php echo $mn["judul"]; ?>" type="text" class="form-control" id="judul" name="judul" required autocomplete="off">
+                                                        <input type="text" class="form-control" id="judul" placeholder="Masukkan Judul Menu" name="judul" required autocomplete="off" autofocus>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="link" class="form-label">Link</label>
-                                                        <input value="<?php echo $mn["link"]; ?>" type="url" class="form-control" id="link" placeholder="Masukkan Link Menu" name="link" required>
+                                                        <input type="url" class="form-control" id="link" placeholder="Masukkan Link Menu" name="link" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="NIK" class="form-label">Gambar</label>
-                                                        <input type="file" class="form-control" id="NIK" name="gambar">
-                                                        <img class="mt-3" src="../../img/<?php echo $mn['gambar']; ?>" width="150" height="100" alt="">
+                                                        <label for="gambar" class="form-label">Gambar</label>
+                                                        <input type="file" class="form-control" id="gambar" placeholder="Masukkan Gambar/Logo Menu" name="gambar" required>
                                                     </div>
                                                     <div class="mb-5">
                                                         <em>*Upload gambar dengan rasio 1:2 atau 2:1</em>
                                                         <br>
                                                         <em>*Batas upload file maksimal 10 mb</em>
+                                                        <br>
+                                                        <em>*Format file jpg, jpeg, png</em>
                                                     </div>
-                                                    <button type="submit" name="submit" class="btn btn-success">Simpan</button>
+                                                    <button type="submit" name="tambahmenu" class="btn btn-success">Simpan</button>
                                                     <a type="button" class="btn btn-primary" href="cardadmin.php">Tutup</a>
                                                 </div>
                                             </form>
@@ -217,6 +211,7 @@ if( isset($_POST["submit"]) ) {
   
 </body>
 </html>
+
 <?php }else{
 	header("Location: ../../index.php");
 } ?>

@@ -291,6 +291,58 @@ function ubahmenu3($data) {
 	return mysqli_affected_rows($conn);
 }
 
+function tambahmenu4($data){
+	$conn = koneksi();
+
+	$judul = htmlspecialchars($data["judul"]);
+	$link = htmlspecialchars($data["link"]);
+
+	// upload gambar
+	$gambar = upload();
+	if( !$gambar ) {
+		return false;
+	}
+	
+	  // Query untuk menyimpan data ke dalam database
+	  $query = "INSERT INTO monitoring VALUES ('', '$judul', '$link', '$gambar')";
+	  mysqli_query($conn, $query);
+
+	  return mysqli_affected_rows($conn);
+}
+
+
+function hapusmenu4($id) {
+	$conn = koneksi();
+	
+	mysqli_query($conn, "DELETE FROM monitoring WHERE id = $id");
+
+	return mysqli_affected_rows($conn);
+}
+
+function ubahmenu4($data) {
+	$conn = koneksi();
+	
+	$id = ($data["id"]);	
+	$judul = htmlspecialchars($data["judul"]);
+	$link = htmlspecialchars($data["link"]);
+	$gambarlama = htmlspecialchars($data["gambarlama"]);
+
+	if( $_FILES['gambar']['error'] === 4 ) {
+		$gambar = $gambarlama;
+	} else {
+		$gambar = upload();
+	}
+
+	$query = "UPDATE monitorng SET 	
+				judul = '$judul',
+				link = '$link',
+				gambar = '$gambar'
+			  WHERE id = $id";
+
+	mysqli_query($conn, $query);
+
+	return mysqli_affected_rows($conn);
+}
 
 
 ?>

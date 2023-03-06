@@ -230,7 +230,7 @@ if ( !isset($_SESSION['NIP']) && !isset($_SESSION['id'])) {
 					</li>
 					<li class="dropdown">
 						<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-							<a href="" class="btn btn-primary">Monitoring</a>
+							<a href="../Monitoring/cardadmin.php" class="btn btn-primary">Monitoring</a>
 							<a href="../Pegawai/pegawai.php" class="btn btn-primary" style="align-items: center;">Data Pegawai</a>
 							<div class="btn-group" role="group">
 								<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

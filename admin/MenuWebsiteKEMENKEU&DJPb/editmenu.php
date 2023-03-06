@@ -166,7 +166,7 @@ if (isset($_POST["submit"])) {
 
 
 <body>
-    <section class="section" style="margin-top: 30px;" id="sectionBeranda">
+    <section class="section" style="margin-top: 15px;" id="sectionBeranda">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 fade-in">
@@ -177,7 +177,7 @@ if (isset($_POST["submit"])) {
                                 <div class="card-body">
                                     <ul>
                                         <form action="" method="post" enctype="multipart/form-data">
-                                            <h1>Tambah Menu</h1>
+                                            <h1>Edit Menu</h1>
                                             <div class="container">
                                                 <input type="hidden" name="id" value="<?php echo $mn["id"]; ?>">
                                                 <input type="hidden" name="gambarlama" value="<?php echo $mn["gambar"]; ?>">

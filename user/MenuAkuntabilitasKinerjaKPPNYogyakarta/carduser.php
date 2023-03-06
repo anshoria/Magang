@@ -317,6 +317,7 @@ $menu = query("SELECT * FROM menuakuntabilitaskinerja");
 		</div>
 	</nav>
 
+    
     <section class="wrapper" style="margin-top: 110px;">
         <div class="container-fostrap">
             <div class="content">
